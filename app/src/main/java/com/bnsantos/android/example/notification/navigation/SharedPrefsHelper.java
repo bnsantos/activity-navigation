@@ -15,7 +15,15 @@ public class SharedPrefsHelper {
 
     public static String getString(Context context, String key) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
-        return sharedPreferences.getString(key, null);
+        String result = sharedPreferences.getString(key, null);
+        clear(context, key);
+        return result;
+    }
+
+    public static void clear(Context context, String key) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE).edit();
+        editor.remove(key);
+        editor.commit();
     }
 
 }
