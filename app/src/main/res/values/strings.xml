@@ -7,8 +7,12 @@
     <string name="hint_response">Type Response</string>
     <string name="response_default">Activity B Response</string>
     <string name="start_b">Start Activity B</string>
+    <string name="finish_a">Finish Activity A</string>
     <string name="finish_b">Finish Activity B</string>
     <string name="title_activity_a">Activity A</string>
     <string name="title_activity_b">Activity B</string>
 
+    <string name="notification_title">Notification</string>
+    <string name="notification_text">Open Activity B</string>
+    <string name="create_notification">Create Notification</string>
 </resources>

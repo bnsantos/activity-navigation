@@ -18,7 +18,7 @@ public class ActivityB extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b);
         mResponse = (EditText) findViewById(R.id.editTextResult);
-        findViewById(R.id.buttonFinish).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.buttonFinishB).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finishB();

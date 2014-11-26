@@ -12,17 +12,31 @@ import android.widget.TextView;
 public class ActivityA extends Activity {
     private final int START_ACTIVITY_B = 123;
     private TextView mResponse;
+    private NotificationHelper mNotificationHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a);
+        mNotificationHelper = new NotificationHelper(this);
         mResponse = (TextView) findViewById(R.id.textViewResponse);
         findViewById(R.id.buttonStartB).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityA.this, ActivityB.class);
                 startActivityForResult(intent, START_ACTIVITY_B);
+            }
+        });
+        findViewById(R.id.buttonCreateNotification).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mNotificationHelper.createNotification();
+            }
+        });
+        findViewById(R.id.buttonFinishA).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

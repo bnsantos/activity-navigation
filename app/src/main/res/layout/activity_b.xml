@@ -26,7 +26,7 @@
         android:hint="@string/hint_response" />
 
     <Button
-        android:id="@+id/buttonFinish"
+        android:id="@+id/buttonFinishB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextResult"
