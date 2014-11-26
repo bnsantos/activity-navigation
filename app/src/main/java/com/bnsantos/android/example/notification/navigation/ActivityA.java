@@ -1,16 +1,16 @@
 package com.bnsantos.android.example.notification.navigation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 
-public class ActivityA extends Activity {
-    private final int START_ACTIVITY_B = 123;
+public class ActivityA extends FragmentActivity {
+    public static final int START_ACTIVITY_B = 123;
     private TextView mResponse;
     private NotificationHelper mNotificationHelper;
 
@@ -39,6 +39,7 @@ public class ActivityA extends Activity {
                 finish();
             }
         });
+        updateTextView(getIntent());
     }
 
 
@@ -70,10 +71,14 @@ public class ActivityA extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == START_ACTIVITY_B) {
-                if (data != null && data.getStringExtra(ActivityB.RESULT) != null) {
-                    mResponse.setText(data.getStringExtra(ActivityB.RESULT));
-                }
+                updateTextView(data);
             }
+        }
+    }
+
+    private void updateTextView(Intent data) {
+        if (data != null && data.getStringExtra(ActivityB.RESULT) != null) {
+            mResponse.setText(data.getStringExtra(ActivityB.RESULT));
         }
     }
 }

@@ -48,6 +48,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonCreateNotification"
         android:layout_centerHorizontal="true"
-        android:text="New Button" />
+        android:text="@string/finish_a" />
 
 </RelativeLayout>

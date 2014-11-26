@@ -9,16 +9,17 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.bnsantos.android.example.notification.navigation.ActivityA"
-            android:label="@string/app_name">
-        <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:label="@string/title_activity_a">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.bnsantos.android.example.notification.navigation.ActivityB"
-            android:label="@string/title_activity_b"></activity>
+            android:label="@string/title_activity_b"
+            android:parentActivityName=".ActivityA"></activity>
     </application>
 
 </manifest>
