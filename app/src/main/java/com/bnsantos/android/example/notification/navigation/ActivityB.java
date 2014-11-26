@@ -6,23 +6,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 
 
-public class ActivityA extends Activity {
-    private final int START_ACTIVITY_B = 123;
-    private TextView mResponse;
+public class ActivityB extends Activity {
+    public static final String RESULT = "ACTIVITY_B_RESPONSE";
+    private EditText mResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_a);
-        mResponse = (TextView) findViewById(R.id.textViewResponse);
-        findViewById(R.id.buttonStartB).setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_b);
+        mResponse = (EditText) findViewById(R.id.editTextResult);
+        findViewById(R.id.buttonFinish).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityA.this, ActivityB.class);
-                startActivityForResult(intent, START_ACTIVITY_B);
+                finishB();
             }
         });
     }
@@ -31,7 +30,7 @@ public class ActivityA extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_activity_a, menu);
+        getMenuInflater().inflate(R.menu.menu_activity_b, menu);
         return true;
     }
 
@@ -50,16 +49,12 @@ public class ActivityA extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == START_ACTIVITY_B) {
-                if (data != null && data.getStringExtra(ActivityB.RESULT) != null) {
-                    mResponse.setText(data.getStringExtra(ActivityB.RESULT));
-                }
-            }
+    private void finishB() {
+        Intent resultIntent = new Intent();
+        if (mResponse.getText().toString().length() > 0) {
+            resultIntent.putExtra(RESULT, mResponse.getText().toString());
         }
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 }

@@ -6,31 +6,31 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ActivityA">
+    tools:context="com.bnsantos.android.example.notification.navigation.ActivityB">
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/title_activity_a"
+        android:text="@string/title_activity_b"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/buttonStartB"
+    <EditText
+        android:id="@+id/editTextResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewTitle"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/margin"
-        android:text="@string/start_b" />
+        android:hint="@string/hint_response" />
 
-    <TextView
-        android:id="@+id/textViewResponse"
+    <Button
+        android:id="@+id/buttonFinish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonStartB"
+        android:layout_below="@+id/editTextResult"
         android:layout_centerHorizontal="true"
-        android:text="@string/response_default" />
+        android:text="@string/finish_b" />
 
 </RelativeLayout>
