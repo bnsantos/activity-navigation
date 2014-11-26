@@ -3,9 +3,6 @@ package com.bnsantos.android.example.notification.navigation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
-import android.support.v4.app.TaskStackBuilder;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,15 +49,16 @@ public class ActivityB extends FragmentActivity {
     }
 
     private void finishB() {
-        /*Intent resultIntent = new Intent();
+        Intent resultIntent = new Intent();
         if (mResponse.getText().toString().length() > 0) {
             resultIntent.putExtra(RESULT, mResponse.getText().toString());
+            SharedPrefsHelper.putString(this, RESULT, mResponse.getText().toString());
         }
         setResult(RESULT_OK, resultIntent);
-        finish();*/
+        finish();
 
         //Reopens ActivityA but do not go into onActivityResult method
-        Intent upIntent = new Intent(getApplicationContext(), ActivityA.class);
+        /*Intent upIntent = new Intent(getApplicationContext(), ActivityA.class);
         if (mResponse.getText().toString().length() > 0) {
             upIntent.putExtra(RESULT, mResponse.getText().toString());
         }
@@ -72,6 +70,6 @@ public class ActivityB extends FragmentActivity {
             upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(upIntent);
             finish();
-        }
+        }*/
     }
 }

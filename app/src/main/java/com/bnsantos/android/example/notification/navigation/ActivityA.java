@@ -79,6 +79,8 @@ public class ActivityA extends FragmentActivity {
     private void updateTextView(Intent data) {
         if (data != null && data.getStringExtra(ActivityB.RESULT) != null) {
             mResponse.setText(data.getStringExtra(ActivityB.RESULT));
+        } else if (SharedPrefsHelper.getString(this, ActivityB.RESULT) != null) {
+            mResponse.setText(SharedPrefsHelper.getString(this, ActivityB.RESULT));
         }
     }
 }

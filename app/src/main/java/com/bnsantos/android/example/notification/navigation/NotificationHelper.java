@@ -39,8 +39,7 @@ public class NotificationHelper {
     private PendingIntent getContentIntent() {
         Intent resultIntent = new Intent(mContext, ActivityB.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(mContext);
-        stackBuilder.addParentStack(ActivityB.class);
-        stackBuilder.addNextIntent(resultIntent);
+        stackBuilder.addNextIntentWithParentStack(resultIntent);
         return stackBuilder.getPendingIntent(ActivityA.START_ACTIVITY_B, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }
